@@ -4,19 +4,9 @@
     "href": "index.html",
     "title": "Turn, Again",
     "section": "",
-    "text": "Welcome",
-    "crumbs": [
-      "Welcome"
-    ]
-  },
-  {
-    "objectID": "index.html#map",
-    "href": "index.html#map",
-    "title": "Turn, Again",
-    "section": "Map",
     "text": "Map",
     "crumbs": [
-      "Welcome"
+      "Map"
     ]
   },
   {
@@ -24,9 +14,9 @@
     "href": "index.html#current-conditions",
     "title": "Turn, Again",
     "section": "Current Conditions",
-    "text": "Current Conditions",
+    "text": "Current Conditions\n\nAvalancheWeather",
     "crumbs": [
-      "Welcome"
+      "Map"
     ]
   },
   {
