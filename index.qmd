@@ -3,22 +3,21 @@ format:
   html:
     toc: false
     page-layout: full
+title: Home
 ---
 
-# Welcome {.unnumbered}
-
-## Map {.unnumbered}
+## Map
 
 {{< include /assets/mapWidget.html >}}
 
 
-## Current Conditions {.unnumbered}
+## Current Conditions
 ::: {.panel-tabset}
 
-### Avalanche {.unnumbered}
+### Avalanche
 {{< include /assets/dangerWidget.html >}}
 
-### Weather {.unnumbered}
+### Weather
 <iframe
   width="800"
   height="600"
