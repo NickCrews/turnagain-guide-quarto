@@ -1,0 +1,142 @@
+<script src="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Cesium.js"></script>
+<link href="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+<style>
+    #cesiumContainer {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+<div id="cesiumContainer"></div>
+<script>
+    // imports don't work in quarto??
+    // import * as Cesium from "https://cesium.com/downloads/cesiumjs/releases/1.87.1/Build/Cesium/Cesium.js";
+
+    function setColor(entity, color) {
+        if (entity.polygon) {
+            entity.polygon.material = color;
+        }
+        if (entity.billboard) {
+            entity.billboard.color = color;
+        }
+        if (entity.polyline) {
+            entity.polyline.material = color;
+        }
+    }
+    
+    function setWidth(entity, width) {
+        if (entity.polyline) {
+            entity.polyline.width = width;
+        }
+    }
+
+    function modifiedEntity(oldEntity) {
+        // make a copy. This MAY not do a deep copy, IDK, watch out!
+        let entity = new Cesium.Entity();
+        entity.merge(oldEntity);
+        entity.properties = oldEntity.properties.getValue();
+
+        setWidth(entity, 5);
+        
+        // Workaround to get polygons to show up.
+        // IDK exactly why this is needed, but if you want to go down the rabbit hole:
+        // https://community.cesium.com/t/polygon-clamp-to-ground-when-terrain-provider-is-used/22798/6
+        if (entity.polygon) {
+            entity.polygon = {
+                hierarchy: entity.polygon.hierarchy.getValue(),
+            }
+        }
+
+        if (entity.properties.feature_type == "peak") {
+            entity.billboard.image = "/assets/flag.svg";
+
+        } else if (entity.properties.feature_type == "parking") {
+            entity.billboard.image = "/assets/parking.svg";
+        }
+        if (entity.billboard) {
+            entity.billboard.width = 32;
+            entity.billboard.height = 32;
+        }
+        
+        let color;
+        if (entity.properties.feature_type == "uptrack") {
+            color = Cesium.Color.RED;
+        } else if (entity.properties.feature_type == "descent") {
+            color = Cesium.Color.BLUE;
+        } else if (entity.properties.feature_type == "bidirectional") {
+            color = Cesium.Color.PURPLE;
+        }
+        if (entity.polygon) {
+            color = color.withAlpha(0.4);
+        }
+        setColor(entity, color);
+
+        return entity;
+    }
+
+    async function makeWidget() {
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NjQ5YjhjOS01Y2UyLTRhYWEtOGEzZC1hZDZmZWI0NGQ3MTQiLCJpZCI6MjIxMjE4LCJpYXQiOjE3MTgwMDk5MDB9._pdWlrUxdAtIiuq3PXK8HrRNxcoJa6bOjwWE8cQ3J3Y';
+        const viewer = new Cesium.Viewer("cesiumContainer", {
+            timeline: false,
+            animation: false,
+            baseLayerPicker: false,
+            geocoder: false,
+            homeButton: false,
+            sceneModePicker: false,
+        });
+        viewer.scene.globe.depthTestAgainstTerrain = true;
+
+        // TODO: use open-source tile providers to get rid of warnings.
+        // https://gist.github.com/banesullivan/e3cc15a3e2e865d5ab8bae6719733752#file-cesium-viewer-no-token-html
+
+        const dataSource = Cesium.GeoJsonDataSource.load(
+            // consider using simplestyle-spec to style the geojson
+            // https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0
+
+            // Needs to use the raw.githubusercontent.com link to avoid CORS issues per
+            // https://stackoverflow.com/a/71359956/5156887
+            // "https://raw.githubusercontent.com/NickCrews/turnagain-guide/main/assets/objects.geojson",
+            // Actually, we can link directly to the relative file, so either will
+            // pull from local version during dev, or from the website in prod.
+            "/assets/objects.geojson",
+            {
+                clampToGround: true,
+                credit: "",
+            }
+        )
+        const entities = [];
+        dataSource.then(function (ds) {
+            ds.entities.values.forEach(ent=>{
+                const entity = modifiedEntity(ent);
+                const addedEnt = viewer.entities.add(entity);
+                entities.push(addedEnt);
+            });
+        });
+
+        try {
+            viewer.scene.terrainProvider = await Cesium.createWorldTerrainAsync();;
+        } catch (error) {
+            window.alert(`There was an error creating world terrain. ${error}`);
+        }
+
+        try {
+            const worldTileset = await Cesium.createGooglePhotorealistic3DTileset();
+            viewer.scene.primitives.add(worldTileset);
+            viewer.scene.globe.show = false;
+            worldTileset.show = true;
+        } catch (error) {
+            console.log(`Error loading Photorealistic 3D Tiles tileset. ${error}`);
+        }
+
+        // TODO: get this to work
+        viewer.zoomTo(
+            // viewer.entities,
+            "foo",
+            // entities[0],
+            // viewer.entities[0],
+            // new Cesium.Cartesian3.fromDegrees(-149.15065334312337, 60.78384273387929, 1000),
+            new Cesium.HeadingPitchRange(Cesium.Math.toRadians(135), Cesium.Math.toRadians(-50), 2000),
+        )
+    }
+
+    makeWidget()
+</script>
