@@ -1,5 +1,0 @@
-# General Information
-
-Use the Strava Global Heatmap to find where people commonly go.
-If you use GaiaGPS, you can add the Strava Heatmap as a layer
-by following this tutorial.

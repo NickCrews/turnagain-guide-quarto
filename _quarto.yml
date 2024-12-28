@@ -26,8 +26,8 @@ book:
     - chapters/conditions.qmd
     - part: General Information
       chapters:
-        - chapters/general/overview.qmd
         - chapters/general/terrain-weather-snowpack.qmd
+        - chapters/general/resources.qmd
     - part: Areas
       chapters:
         - chapters/areas/overview.qmd
