@@ -22,7 +22,6 @@ book:
         href: chapters/license.qmd
   chapters:
     - index.qmd
-    - chapters/howto.qmd
     - chapters/conditions.qmd
     - part: General Information
       chapters:
