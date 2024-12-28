@@ -27,9 +27,7 @@ book:
     - part: General Information
       chapters:
         - chapters/general/overview.qmd
-        - chapters/general/terrain.qmd
-        - chapters/general/weather.qmd
-        - chapters/general/snowpack.qmd
+        - chapters/general/terrain-weather-snowpack.qmd
     - part: Areas
       chapters:
         - chapters/areas/overview.qmd

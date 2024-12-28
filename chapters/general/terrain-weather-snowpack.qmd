@@ -1,6 +1,10 @@
-# Weather
+# Terrain, Snowpack, and Weather
 
-## Wind
+## Terrain
+
+## Weather
+
+### Wind
 
 In many other areas, wind tends to have consistent behavior.
 For example, in the Bozeman MT area, storms often blow in from the West.
@@ -18,7 +22,7 @@ For example, the cornice on the ridge of Gold Pan always forms on the same side 
 ridge every year, even if maybe a kilometer away the cornices all form on the other
 side of the ridge.
 
-## Rain
+### Rain
 
 It can rain here. It is common for rainline to climb all the way to 3000 feet
 several times a winter.
@@ -28,7 +32,7 @@ That is the highest elevation of the road, and often around the elevation you pa
 If it's higher, you can still have good skiing, but you are going to have to
 pay the toll of climbing through the rain line to get it.
 
-## Solar input
+### Solar input
 
 The sun has less effect in Alaska than you might be used to if you are coming from
 more equatorial areas, and it is less focused.
@@ -48,7 +52,7 @@ which generally leads to any one patch of snow being hit by direct sun for a sma
 fraction of the day.
 Third, it's a lot cloudier than Colorado.
 
-## Radiative Cooling
+### Radiative Cooling
 
 The "inverse" of solar input is radiative cooling.
 This is when the snow emits UV radiation that travels through a clear sky
@@ -76,11 +80,11 @@ the snow melts during the warm day, but then sort of just stays as slop at night
 Typically, this radiative cooling has the most effect at night,
 but it can also be significant during a clear day if you are in a shadowy north-facing zone.
 
-## Common Patterns
+### Common Patterns
 
 There are several common patterns that the weather follows.
 
-### Gulf Storm
+#### Gulf Storm
 
 A storm system comes from the Gulf of Alaska and hits Turnagain Pass from the West,
 spilling over Portage Pass from Prince William Sound.
@@ -92,7 +96,7 @@ is deeper on the North end of the Pass than the South end.
 These storms can sometimes just sit on Turnagain Pass and DUMP precipitation for
 5 days straight.
 
-### Cook Inlet Storms
+#### Cook Inlet Storms
 
 These storms move up Cook Inlet and come over the Kenai Mountains to hit Turnagain Pass
 from the Southeast. These storms are more rare than the Gulf Storms.
@@ -101,7 +105,7 @@ with precipitation, as well as the South end of the pass, where the North end of
 pass is skipped.
 
 
-### Northern Outflows
+#### Northern Outflows
 
 Oftentimes a high pressure system from the center of alaska flows South past Anchorage
 and down Turnagain Arm, blasting Turnagain Pass with high winds at first,
@@ -111,3 +115,44 @@ can ruin the snow from the previous storm, and then you are stuck with this
 beautiful weather but a bunch of terrible snow.
 When this system moves in with less wind, then this pattern can make for
 excellent riding conditions.
+
+## Snowpack and Avalanches
+
+Turnagain Pass has a maritime snowpack, receiving hundreds of inches of
+snow (and often, rain) a year.
+
+The local avalanche center is
+[CNFAIC](https://www.cnfaic.org/forecast/turnagain/)
+(Chugach National Forest Avalanche Information Center).
+
+### Ground Hoar
+
+We don't usually get it. Hurray! So that means we don't usually have to
+worry about avalanches breaking at the ground.
+
+### Glide Cracks
+
+We DO have a hazard that is a lot less common in other zones: glide cracks.
+This is when the entire snowpack creeps along the ground, and a glide crack appears
+where sections separate.
+They are more likely to be active during warm periods and rain, but they can
+still be active at other times too.
+
+They present as a 1-10 foot wide gap in the snowpack that is open all the
+way to the ground below, which can sometimes be 10 or 15 feet below.
+This is one hazard of them: if you are careless or if the visibility is bad,
+you can ski off a non-insignificant temporary cliff!
+
+They also are hazards when they release as catastrophic avalanches.
+This actually is pretty rare, most glide cracks we see become inactive
+and then new snow fills in the crack.
+But when they do release, they release usually to the ground, and very large.
+Usually you can't trigger them yourself, but you just want to minimize
+your exposure by not lingering underneath them.
+
+In general
+
+- try to avoid them if you can
+- be especially cautious in bad visibility
+- if there is no better route, I wouldn't think it was crazy to quickly scoot
+  around them
