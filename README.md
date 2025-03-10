@@ -1,3 +1,8 @@
+# ARCHIVED
+
+This has been superseded by https://github.com/NickCrews/turnagain-guide.
+This was my initial attempt that used [quarto](https://quarto.org/), but I ended up wanting more interactivity/customization.
+
 # Turnagain Pass Guidebook
 
 Your companion for skiing in Turnagain Pass, Alaska
